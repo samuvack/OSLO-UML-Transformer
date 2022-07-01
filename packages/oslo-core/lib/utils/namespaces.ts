@@ -5,6 +5,7 @@ const factory = new DataFactory();
 // TODO: remove example.org from prefixes
 enum Prefixes {
   example = 'http://example.org/',
+  adms = 'http://www.w3.org/ns/adms#',
   dcat = 'http://www.w3.org/ns/dcat#',
   dcterms = 'http://purl.org/dc/terms/',
   foaf = 'http://xmlns.com/foaf/0.1/',

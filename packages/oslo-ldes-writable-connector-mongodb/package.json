@@ -32,6 +32,12 @@
   },
   "dependencies": {
     "@oslo-flanders/core": "^0.0.0",
-    "mongodb": "^4.7.0"
+    "@treecg/connector-types": "^1.1.2",
+    "@treecg/sds-storage-writer-mongo": "^0.0.1-a.2",
+    "mongodb": "^4.7.0",
+    "rdf-data-factory": "^1.1.0"
+  },
+  "devDependencies": {
+    "@rdfjs/types": "^1.1.0"
   }
 }

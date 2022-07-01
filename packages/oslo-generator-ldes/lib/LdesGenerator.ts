@@ -1,6 +1,7 @@
 import type { GeneratorConfiguration } from '@oslo-flanders/configuration';
 import type { LdesWritableConnector, OsloLdesMember } from '@oslo-flanders/core';
 import { ns, Generator } from '@oslo-flanders/core';
+import type * as RDF from '@rdfjs/types';
 import { SHA256 } from 'crypto-js';
 import { DataFactory } from 'rdf-data-factory';
 
@@ -22,29 +23,12 @@ export class LdesGenerator<T extends GeneratorConfiguration> extends Generator<G
     const objectIds = store.getObjects(this.factory.namedNode(documentUrl), null, null);
     objectIds.forEach(objectId => {
       const quads = store.getQuads(objectId, null, null, null);
-
-      const type = quads.find(x => x.predicate.equals(ns.rdf('type')))?.object.value;
-      const label = quads.find(x => x.predicate.equals(ns.rdfs('label')))?.object.value;
-      const definition = quads.find(x => x.predicate.equals(ns.rdfs('comment')))?.object.value;
-      const scope = quads.find(x => x.predicate.equals(ns.example('scope')))?.object.value;
-      const guid = quads.find(x => x.predicate.equals(ns.example('guid')))!.object.value;
-
-      const versionId = SHA256(JSON.stringify({ guid, documentId: this.configuration.documentId })).toString();
-
-      const member: Partial<OsloLdesMember> = {
-        versionId,
-        entityId: objectId.value,
-        label,
-        type,
-        definition,
-        scope,
-        context: documentUrl,
-      };
+      const member = this.createMember(quads, objectId);
 
       tasks.push(this.connector.writeVersion(member));
     });
 
-    await Promise.all(tasks);
+    await Promise.all(tasks).then(() => this.connector.stop());
   }
 
   public async init(config: GeneratorConfiguration): Promise<void> {
@@ -63,6 +47,72 @@ export class LdesGenerator<T extends GeneratorConfiguration> extends Generator<G
 
     this.connector = new WritableConnectorPackage[connectorName]();
     await this.connector.init(<T>this.configuration);
+  }
+
+  private createMember(objectQuads: RDF.Quad[], objectId: RDF.Quad_Object): OsloLdesMember {
+    const memberQuads: RDF.Quad[] = [];
+
+    // We assume that everything is present (except description)
+    const type = objectQuads.find(x => x.predicate.equals(ns.rdf('type')))!;
+    const label = objectQuads.find(x => x.predicate.equals(ns.rdfs('label')))!;
+    const definition = objectQuads.find(x => x.predicate.equals(ns.rdfs('comment')));
+    const scope = objectQuads.find(x => x.predicate.equals(ns.example('scope')))!;
+    const guid = objectQuads.find(x => x.predicate.equals(ns.example('guid')))!;
+
+    // TODO: is it necessary to calculate a new guid?
+    const versionId = SHA256(JSON.stringify({ guid, documentId: this.configuration.documentId })).toString();
+    const versionUriNamedNode = this.factory.namedNode(`${this.configuration.baseUri}/id/terminology/${versionId}`);
+    const context = this.factory.namedNode(`${this.configuration.baseUri}/${this.configuration.documentId}`);
+
+    // TODO: add timestamp
+
+    memberQuads.push(
+      this.factory.quad(
+        versionUriNamedNode,
+        ns.rdf('type'),
+        type.object,
+        context,
+      ),
+      this.factory.quad(
+        versionUriNamedNode,
+        ns.adms('isVersionOf'),
+        objectId,
+        context,
+      ),
+      this.factory.quad(
+        versionUriNamedNode,
+        ns.skos('prefLabel'),
+        label.object,
+        context,
+      ),
+      this.factory.quad(
+        versionUriNamedNode,
+        ns.example('scope'),
+        scope.object,
+        context,
+      ),
+      this.factory.quad(
+        versionUriNamedNode,
+        ns.dcterms('created'),
+        this.factory.literal(new Date(Date.now()).toISOString(), ns.xsd('string')),
+      ),
+    );
+
+    if (definition) {
+      memberQuads.push(
+        this.factory.quad(
+          versionUriNamedNode,
+          ns.rdfs('comment'),
+          definition.object,
+          context,
+        ),
+      );
+    }
+
+    return {
+      id: versionUriNamedNode.value,
+      quads: memberQuads,
+    };
   }
 
   public get connector(): LdesWritableConnector<T> {
