@@ -8,7 +8,7 @@ import { MongoClient } from 'mongodb';
 import { DataFactory } from 'rdf-data-factory';
 
 interface MongoDbWritableConnectorConfig {
-  url: string;
+  databaseUrl: string;
 }
 
 type SR<T> = {
@@ -39,7 +39,8 @@ export class MongoDbWritableConnector implements LdesWritableConnector<MongoDbWr
   }
 
   public async init(config: MongoDbWritableConnectorConfig): Promise<void> {
-    this.client = new MongoClient(config.url);
+    // FIXME: config is not correctly passed by generator
+    this.client = new MongoClient(config.databaseUrl);
     await this.client.connect();
 
     this.dataStream = new SimpleStream<RDF.Quad[]>();

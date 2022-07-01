@@ -14,12 +14,12 @@ export class JsonLdContextGenerator extends Generator<GeneratorConfiguration> {
     let duplicates: string[] = [];
 
     // If addDomainPrefix === false, then we only add the domain prefix for duplicates
-    if (!this.configuration.addDomainPrefix) {
+    if (!this.configuration.jsonldContext.addDomainPrefix) {
       duplicates = this.identifyDuplicates(document.attributes);
     }
 
     const context = this.generateContext(document, duplicates);
-    await writeFile(this.configuration.contextOutput, JSON.stringify(context, null, 2));
+    await writeFile(this.configuration.jsonldContext.output, JSON.stringify(context, null, 2));
   }
 
   private identifyDuplicates(attributes: any[]): string[] {
@@ -96,7 +96,7 @@ export class JsonLdContextGenerator extends Generator<GeneratorConfiguration> {
       }
 
       let label = toCamelCase(languageLabel);
-      if (this.configuration.addDomainPrefix || duplicates.includes(languageLabel)) {
+      if (this.configuration.jsonldContext.addDomainPrefix || duplicates.includes(languageLabel)) {
         const domainObject: any = property.domain;
 
         if (!domainObject) {

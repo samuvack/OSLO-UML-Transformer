@@ -34,19 +34,20 @@ export class LdesGenerator<T extends GeneratorConfiguration> extends Generator<G
   public async init(config: GeneratorConfiguration): Promise<void> {
     await super.init(config);
 
-    if (!config.ldesBackendConnectorPackageName) {
-      throw new Error(`LdesWritableConnector is not configured. Please set value for 'ldesBackendConnectorPackageName' in configuration.`);
+    if (!config.ldes.connectorPackageName) {
+      throw new Error(`LdesWritableConnector is not configured. Please set value for 'ldes.connectorPackageName' in configuration.`);
     }
 
-    const WritableConnectorPackage = require(config.ldesBackendConnectorPackageName);
+    const WritableConnectorPackage = require(config.ldes.connectorPackageName);
     const connectorName = Object.keys(WritableConnectorPackage).find(key => key.endsWith('Connector'));
 
     if (!connectorName) {
-      throw new Error(`WritableConnector ${config.ldesBackendConnectorPackageName} could not be loaded correctly!`);
+      throw new Error(`WritableConnector ${config.ldes.connectorPackageName} could not be loaded correctly!`);
     }
 
     this.connector = new WritableConnectorPackage[connectorName]();
-    await this.connector.init(<T>this.configuration);
+    // TODO: do this properly
+    await this.connector.init(<T><unknown>this.configuration.ldes);
   }
 
   private createMember(objectQuads: RDF.Quad[], objectId: RDF.Quad_Object): OsloLdesMember {

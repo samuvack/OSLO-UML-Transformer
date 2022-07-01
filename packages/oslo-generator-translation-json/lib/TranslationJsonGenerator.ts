@@ -21,7 +21,7 @@ export class TranslationJsonGenerator extends Generator<GeneratorConfiguration> 
       attributes: translationProperties,
     };
 
-    await writeFile(this.configuration.translationFileOutput, JSON.stringify(output, null, 2));
+    await writeFile(this.configuration.translation.output, JSON.stringify(output, null, 2));
   }
 
   private async createTranslationClasses(classes: any[]): Promise<any[]> {
@@ -48,15 +48,15 @@ export class TranslationJsonGenerator extends Generator<GeneratorConfiguration> 
       };
 
       translationClassObject.label[this.configuration.language] = label;
-      translationClassObject.label[this.configuration.targetLanguage] = 'Enter your translation here';
+      translationClassObject.label[this.configuration.translation.language] = 'Enter your translation here';
       translationClassObject.definition[this.configuration.language] = description;
-      translationClassObject.definition[this.configuration.targetLanguage] = 'Enter your translation here';
+      translationClassObject.definition[this.configuration.translation.language] = 'Enter your translation here';
 
       if (usageNote) {
         translationClassObject.usageNote[this.configuration.language] = usageNote;
       }
 
-      translationClassObject.usageNote[this.configuration.targetLanguage] = 'Enter your translation here';
+      translationClassObject.usageNote[this.configuration.translation.language] = 'Enter your translation here';
 
       translationClasses.push(translationClassObject);
       return translationClasses;
@@ -90,20 +90,20 @@ export class TranslationJsonGenerator extends Generator<GeneratorConfiguration> 
       };
 
       translationPropertyObject.label[this.configuration.language] = label;
-      translationPropertyObject.label[this.configuration.targetLanguage] = 'Enter your translation here';
+      translationPropertyObject.label[this.configuration.translation.language] = 'Enter your translation here';
       translationPropertyObject.definition[this.configuration.language] = description;
-      translationPropertyObject.definition[this.configuration.targetLanguage] = 'Enter your translation here';
+      translationPropertyObject.definition[this.configuration.translation.language] = 'Enter your translation here';
       translationPropertyObject.domain = {
         id: property.domain['@id'],
       };
       translationPropertyObject.domain[this.configuration.language] = domainLabel;
-      translationPropertyObject.domain[this.configuration.targetLanguage] = 'Enter your translation here';
+      translationPropertyObject.domain[this.configuration.translation.language] = 'Enter your translation here';
 
       if (usageNote) {
         translationPropertyObject.usageNote[this.configuration.language] = usageNote;
       }
 
-      translationPropertyObject.usageNote[this.configuration.targetLanguage] = 'Enter your translation here';
+      translationPropertyObject.usageNote[this.configuration.translation.language] = 'Enter your translation here';
 
       translationProperties.push(translationPropertyObject);
       return translationProperties;

@@ -33,7 +33,7 @@ export class ShaclGenerator extends Generator<GeneratorConfiguration> {
       shapes: classShapes,
     };
 
-    await writeFile(this.configuration.shaclOutput, JSON.stringify(shacl, null, 2));
+    await writeFile(this.configuration.shacl.output, JSON.stringify(shacl, null, 2));
   }
 
   private async createClassShape(classes: any[]): Promise<any[]> {

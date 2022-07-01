@@ -1,12 +1,20 @@
 export interface GeneratorConfiguration {
-  contextOutput: string;
-  shaclOutput: string;
   language: string;
-  addDomainPrefix: boolean;
-  targetLanguage: string;
-  translationFileOutput: string;
   documentId: string;
   baseUri: string;
-  ldesBackendConnectorPackageName: string;
-  databaseUrl: string;
+  shacl: {
+    output: string;
+  };
+  jsonldContext: {
+    output: string;
+    addDomainPrefix: boolean;
+  };
+  translation: {
+    output: string;
+    language: string;
+  };
+  ldes: {
+    connectorPackageName: string;
+    databaseUrl: string;
+  };
 }
