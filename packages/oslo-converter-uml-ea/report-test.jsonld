@@ -1,0 +1,2210 @@
+{
+  "@context": {
+    "@context": {
+      "vlaanderen": "http://data.vlaanderen.be/ns/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "void": "http://rdfs.org/ns/void#",
+      "dcterms": "http://purl.org/dc/terms/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "qb": "http://purl.org/linked-data/cube#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "person": "http://www.w3.org/ns/person#",
+      "rec": "http://www.w3.org/2001/02pd/rec54#",
+      "vann": "http://purl.org/vocab/vann/",
+      "sh": "http://w3.org/ns/shacl#",
+      "prov": "http://www.w3.org/ns/prov#",
+      "packages": "@included",
+      "classes": "@included",
+      "datatypes": "@included",
+      "attributes": "@included",
+      "baseUri": "http://example.org/baseUri",
+      "definition": {
+        "@id": "rdfs:comment",
+        "@container": "@set"
+      },
+      "label": {
+        "@id": "rdfs:label",
+        "@container": "@set"
+      },
+      "scope": {
+        "@id": "http://example.org/scope"
+      },
+      "usageNote": {
+        "@id": "vann:usageNote",
+        "@container": "@set"
+      },
+      "domain": {
+        "@id": "rdfs:domain",
+        "@container": "@set"
+      },
+      "range": {
+        "@id": "rdfs:range"
+      },
+      "minCount": {
+        "@id": "sh:minCount"
+      },
+      "maxCount": {
+        "@id": "sh:maxCount"
+      },
+      "parent": {
+        "@id": "rdfs:subClassOf",
+        "@type": "owl:Class"
+      },
+      "generatedAtTime": {
+        "@id": "prov:generatedAtTime"
+      },
+      "Package": "http://example.org/Package",
+      "Class": {
+        "@id": "owl:Class"
+      },
+      "DatatypeProperty": {
+        "@id": "owl:DatatypeProperty"
+      },
+      "ObjectProperty": {
+        "@id": "owl:ObjectProperty"
+      },
+      "authors": {
+        "@type": "foaf:Person",
+        "@id": "foaf:maker"
+      },
+      "editors": {
+        "@type": "foaf:Person",
+        "@id": "rec:editor"
+      },
+      "contributors": {
+        "@type": "foaf:Person",
+        "@id": "dcterms:contributor"
+      },
+      "affiliation": {
+        "@id": "http://schema.org/affiliation"
+      }
+    }
+  },
+  "@id": "https://data.vlaanderen.be/test",
+  "generatedAtTime": "2023-01-18T14:57:05.008Z",
+  "packages": [
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein",
+      "@type": "Package",
+      "baseUri": "https://data.vlaanderen.be/ns/mijndomein#"
+    }
+  ],
+  "classes": [
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K01A",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K01A etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 01A"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K01B",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K01B etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 01B"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K02A",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K02A etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 02A"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K02B",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K02B etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 02B"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K07A",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K07A etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 07A"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K03A",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K03A etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 03A"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K03B",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K03B etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 03B"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K23",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K23 etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 23"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft27 (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 27"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K27",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K27 etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 27"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K05A",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K05A etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 05A"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K05B",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K05B etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 05B"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft05",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft05 (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 05"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K04A",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K04A etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 04A"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K04B",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K04B etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 04B"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft04",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft04 (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 04"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K06B",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K06B etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 06B"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft06",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft06 (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 06"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K07B",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K07B etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 07B"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft07 (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 07"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K06A",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K06A etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 06A"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07b",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft07b (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 07b"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27b",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft27b (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 27b"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft25",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft25 (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 25"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K25",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K25 etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 25"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft26",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft26 (associatieklasse) etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 26"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K26",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K26 etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 26"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K21",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K21 etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 21"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K22",
+      "@type": "Class",
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie K22 etc."
+        }
+      ],
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "K 22"
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    }
+  ],
+  "attributes": [
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a05",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 05"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a05 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a05 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft05"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a04",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 04"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a04 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a04 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft04"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a06",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 06"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a06 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a06 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft06"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a07",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 07"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a07 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a07 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a25",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 25"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a25 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a25 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft25"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a07b",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 07b"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a07b etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a07b etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07b"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a27b",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 27b"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a27b etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a27b etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27b"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a26",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 26"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a26 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a26 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft26"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#a27",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "a 27"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie a27 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik a27 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27"
+        }
+      ],
+      "range": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k03Brol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 03B rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k03Brol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k03Brol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K03A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K03B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k03Arol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 03A rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k03Arol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k03Arol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K03B"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K03A"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k23ArolTweede",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 23A rol Tweede"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k23ArolTweede etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k23ArolTweede etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k23BrolTweede",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 23B rol Tweede"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k23BrolTweede etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k23BrolTweede etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k23Arol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 23A rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k23Arol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k23Arol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k23Brol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 23B rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k23Brol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k23Brol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K23"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k03ArolTweede",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 03A rol Tweede"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k03ArolTweede etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k03ArolTweede etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K03B"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K03A"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k03BrolTweede",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 03B rol Tweede"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k03BrolTweede etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k03BrolTweede etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K03A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K03B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#heeft05",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 05"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft05 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft05 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K05A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K05B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft05.k05A",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K05A"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft05"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K05A"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft05.k05B",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K05B"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft05"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K05B"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K04A.heeft04",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K04B"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K04A"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K04B.heeft04",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K04A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K04B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft04.k04A",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K04A"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft04"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K04A"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft04.k04B",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K04B"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft04"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K04B"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K06A.heeft06",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 06"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft06 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft06 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K06B"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K06A"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K06B.heeft06",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 06"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft06 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft06 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K06A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K06B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft06.k06A",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K06A"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft06"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K06A"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft06.k06B",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K06B"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft06"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K06B"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k07Arol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 07A rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k07Arol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k07Arol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K07B"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K07A"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k07Brol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 07B rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k07Brol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k07Brol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K07A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K07B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07.k07A",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K07A"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K07A"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07.k07B",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K07B"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K07B"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#heeft01",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 01"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft01 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft01 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K01A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K01B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K02A.heeft02",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 02"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft02 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft02 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K02B"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K02A"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K02B.heeft02",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 02"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft02 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft02 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K02A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K02B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k27Arol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 27A rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k27Arol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k27Arol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k27Brol",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 27B rol"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k27Brol etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k27Brol etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27.k27.source",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K27 (source)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27.k27.target",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K27 (target)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k07BrolTweede",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 07B rol Tweede"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k07BrolTweede etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k07BrolTweede etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K07A"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K07B"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07b.k07A",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K07A"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07b"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K07A"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07b.k07B",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K07B"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft07b"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K07B"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#k27BrolTweede",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "k 27B rol Tweede"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie k27BrolTweede etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik k27BrolTweede etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27b.k27.source",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K27 (source)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27b"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27b.k27.target",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K27 (target)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft27b"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K27"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K22.heeft22",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 22"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft22 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft22 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K22"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K22"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#heeft25",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 25"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft25 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft25 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K25"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K25"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft25.k25.source",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K25 (source)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft25"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K25"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft25.k25.target",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K25 (target)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft25"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K25"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#K26.heeft26",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 26"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft26 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft26 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K26"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K26"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft26.k26.source",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K26 (source)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft26"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K26"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft26.k26.target",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "",
+          "@value": "K26 (target)"
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#Heeft26"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K26"
+      },
+      "minCount": "1",
+      "maxCount": "1",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    },
+    {
+      "@id": "https://data.vlaanderen.be/ns/mijndomein#heeft21",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": [
+        {
+          "@language": "nl",
+          "@value": "Heeft 21"
+        }
+      ],
+      "definition": [
+        {
+          "@language": "nl",
+          "@value": "Definitie Heeft21 etc."
+        }
+      ],
+      "usageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik Heeft21 etc."
+        }
+      ],
+      "domain": [
+        {
+          "@id": "https://data.vlaanderen.be/ns/mijndomein#K21"
+        }
+      ],
+      "range": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#K21"
+      },
+      "minCount": "1",
+      "maxCount": "*",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage"
+    }
+  ],
+  "dataTypes": [],
+  "statements": [
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a05"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a04"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a06"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a07"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a25"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a07b"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a27b"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a26"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    },
+    {
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "subject": {
+        "@id": "https://data.vlaanderen.be/ns/mijndomein#a27"
+      },
+      "predicate": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#range"
+      },
+      "object": {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "label": "String"
+    }
+  ]
+}
