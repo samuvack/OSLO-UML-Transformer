@@ -24,7 +24,16 @@
     "url": "https://github.com/Informatievlaanderen/OSLO-UML-Transformer/issues"
   },
   "dependencies": {
+    "@oslo-flanders/core": "file:../oslo-core",
+    "@oslo-flanders/configuration": "file:../oslo-configuration", //How to add this dependency?
     "@oslo-flanders/core": "^0.0.0",
+    "@rdfjs/types": "^1.1.0",
+    "child_process": "^1.0.2",
+    "crypto-js": "^4.1.1",
+    "fs": "^0.0.1-security",
+    "n3": "^1.16.3",
+    "nunjucks": "^3.2.3",
+    "path": "^0.12.7",
     "respec": "^32.6.1"
   }
 }

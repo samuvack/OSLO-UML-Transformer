@@ -6,6 +6,8 @@ import { Generator, getLoggerFor, ns } from '@oslo-flanders/core';
 import type * as RDF from '@rdfjs/types';
 import * as nj from 'nunjucks';
 
+//Typescript file generates ReSpec HTML file
+//The ReSpec HTML file is then used to generate the final HTML file
 export class ReSpecGenerator extends Generator<GeneratorConfiguration> {
   private readonly logger = getLoggerFor(this);
 
@@ -14,17 +16,11 @@ export class ReSpecGenerator extends Generator<GeneratorConfiguration> {
   }
 
   public async generate(data: any): Promise<void> {
-    //this.logger.info(`Generating respec file.`);
-
-    //await this.initStore(this.configuration.inputFile, this.configuration.targetLanguage);
     const templateDir = resolve(`${__dirname}/../../respec`);
     nj.configure(templateDir, { autoescape: false });
 
-    //const classQuads = this.store.getQuads(null, ns.rdf('type'), ns.owl('Class'), null);
-    //const classes = this.parseClasses(classQuads);
-
     const html = nj.render(`templates/template-${this.configuration.targetLanguage}.njk`, { respec_config: this.getRespecConfig(), classes, page_title: this.configuration.title });
-    writeFileSync('C:\\Users\\vanlanckdw\\Documents\\Projects\\OSLO-Toolchain\\packages\\oslo-generator-html\\respec\\rendered-template.html', html);
+    writeFileSync('rendered-template.html', html);
 
     execSync(`npm --prefix ${__dirname}/../../ run generate-respec`);
   }
