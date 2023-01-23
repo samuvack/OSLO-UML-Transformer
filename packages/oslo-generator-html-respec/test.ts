@@ -55,12 +55,12 @@ export class ReSpecGenerator extends Generator<GeneratorConfiguration> {
         });
     }
 
-    private getRespecConfig(): any {
+    private getRespecConfig(): any { //https://respec.org/docs/#example-specifying-editors-and-authors
         const config = {
             specStatus: 'unofficial',
             editors: [
                 {
-                    name: 'Dwight',
+                    name: 'Van Ackere, Samuel',
                     url: 'https://your-site.com',
                 },
             ],
