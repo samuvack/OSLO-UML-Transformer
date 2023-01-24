@@ -18,14 +18,13 @@
     "url": "git+https://github.com/Informatievlaanderen/OSLO-UML-Transformer.git"
   },
   "scripts": {
+    "generate-respec": "respec --src rendered.html --out output.html",
     "test": "node ./__tests__/oslo-generator-html-respec.test.js"
   },
   "bugs": {
     "url": "https://github.com/Informatievlaanderen/OSLO-UML-Transformer/issues"
   },
   "dependencies": {
-    "@oslo-flanders/core": "file:../oslo-core",
-    "@oslo-flanders/configuration": "file:../oslo-configuration", //How to add this dependency?
     "@oslo-flanders/core": "^0.0.0",
     "@rdfjs/types": "^1.1.0",
     "child_process": "^1.0.2",
@@ -35,5 +34,8 @@
     "nunjucks": "^3.2.3",
     "path": "^0.12.7",
     "respec": "^32.6.1"
+  },
+  "devDependencies": {
+    "@types/nunjucks": "^3.2.1"
   }
 }

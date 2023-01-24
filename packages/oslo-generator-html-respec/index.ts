@@ -1,4 +1,4 @@
 import 'reflect-metadata';
 export * from './lib/HtmlRespecGenerationServiceRunner';
 export * from './lib/HtmlRespecGenerationService';
-export * from './config/HtmlRespecGenerationServiceConfiguration';
+export * from './lib/config/HtmlRespecGenerationServiceConfiguration';
