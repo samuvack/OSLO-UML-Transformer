@@ -24,7 +24,7 @@ export class HtmlRespecGenerationServiceRunner extends AppRunner {
       .demandOption(['input', 'language'])
       .help('h')
       .alias('h', 'help');
-    
+
     const params = await yargv.parse();
     const configuration = container.get<HtmlRespecGenerationServiceConfiguration>(ServiceIdentifier.Configuration);
     await configuration.createFromCli(params);

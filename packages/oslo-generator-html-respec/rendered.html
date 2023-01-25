@@ -2,10 +2,25 @@
 <html>
     <head><meta charset="utf-8"/>
         <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
-        <script class="remove">var respecConfig = {"specStatus":"https://data.vlaanderen.be/doc/concept/StandaardStatus/ErkendeStandaard","editors":[{"name":"Dwight","url":"https://your-site.com"}],"github":"w3c/respec","publishDate":"2023-03-27","shortName":"respec"}</script></head>
+        <script class="remove">var respecConfig = {"specStatus":"unofficial","editors":[{"name":"Dwight","url":"https://your-site.com"}],"github":"w3c/respec","publishDate":"2023-03-27","shortName":"respec"}</script></head>
     <body>
 
     <h1>James</h1>
+
+    <h1>async createRespecClasses(store) {
+        const classes = store.getSubjects(core_1.ns.rdf("type"), core_1.ns.rdfs("Class"), null);
+        const inPackageClasses = this.filterOnScope(classes, store);
+        return inPackageClasses.map((subject) => {
+            // label, usagenote
+            return {
+                id: '1'
+            };
+        });
+    }</h1>
+
+    <h1>async createRespecAttributes(store) {
+        return [];
+    }</h1>
 
 
 
