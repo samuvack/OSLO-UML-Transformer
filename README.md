@@ -9,15 +9,6 @@ This workflow consists of two parts:
 
 The two parts of the workflow can be executed individually.
 
-## How to use
-`cd ./oslo-generator-html-respec`
-
-`tsc watch`
-
-`node ./bin/runner.js --input report-test.jsonld --output output.html --language nl`
-
-
-
 ## Domain model of the JSON-LD
 
 All converters must transforms the UML diagram to an RDF file that adheres to the following domain model.
