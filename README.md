@@ -11,7 +11,9 @@ The two parts of the workflow can be executed individually.
 
 ## How to use
 `cd ./oslo-generator-html-respec`
+
 `tsc watch`
+
 `node ./bin/runner.js --input report-test.jsonld --output output.html --language nl`
 
 
