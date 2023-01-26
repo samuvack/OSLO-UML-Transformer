@@ -1,5 +1,6 @@
 # OSLO Toolchain
 
+
 The OSLO toolchain is an open-source software environment that makes it possible to make an OSLO specification document from a UML model.
 This software environment consists of various modules that according to the needs of the users can be wired together in a workflow via configuration.
 This workflow consists of two parts:
@@ -7,6 +8,13 @@ This workflow consists of two parts:
 - One or more generators → use the JSON-LD file as input to generate various artefacts
 
 The two parts of the workflow can be executed individually.
+
+## How to use
+'cd ./oslo-generator-html-respec'
+'tsc watch'
+'node ./bin/runner.js --input report-test.jsonld --output output.html --language nl'
+
+
 
 ## Domain model of the JSON-LD
 
