@@ -1,6 +1,6 @@
 # `oslo-generator-html-respec`
 
-The OSLO generator html ReSpec module is an open-source generator that makes it possible to generate a Html document from a JSON-LD file in the layout of a ReSpec document.
+The OSLO generator html ReSpec module is an open-source generator that makes it possible to generate a Html document from a JSON-LD file in the layout of a [ReSpec](https://respec.org/docs/) document.
 
 ## Usage
 
