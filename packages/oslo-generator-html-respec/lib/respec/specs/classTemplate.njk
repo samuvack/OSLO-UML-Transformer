@@ -1,0 +1,73 @@
+{% for label in class.labels%}
+<h2>{{label.label}}</h2>
+{% endfor %}
+
+
+<table>
+  <tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td>{{class.id | urlize() | safe}}</td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    {% for definition in class.definitions%}
+    <td>{{definition.definition}}</td>
+     {% else %}
+    <td style="color:red;">Empty</td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    {% for label in class.labels%}
+    <td>{{label.label}}</td>
+     {% else %}
+    <td style="color:red;">Empty</td>
+    {% endfor %}
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    {% if class.scope %}
+    <td>{{class.scope.value | urlize() | safe}}</td>
+    {% else %}
+    <td style="color:red;">Empty</td>
+  </tr>
+{% endif %}
+
+  <tr>
+    <th>Parent</th>
+    {% if class.parents %}
+    <td>
+    {% for parent in class.parents%}
+      {{parent.id.value | urlize() | safe }}
+    {% endfor %}
+    </td>
+    {% else %}
+    <td style="color:red;">Empty</td>
+  </tr>
+{% endif %}
+
+  <tr>
+    <th>Parent Label</th>
+    {% if class.parents %}
+    <td>
+    {% for parent in class.parents%}
+      {{parent.label.value}}
+    {% endfor %}
+    </td>
+    {% else %}
+    <td style="color:red;">Empty</td>
+  </tr>
+{% endif %}
+
+</table>
+
+

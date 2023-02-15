@@ -6,12 +6,12 @@ export class HtmlRespecGenerationServiceConfiguration
   implements IConfiguration
 {
   /**
-   * Local path or URL to (OSLO compliant) RDF file to generate JSON-LD context from
+   * Local path or URL to JSON-LD file to generate ReSpec HTML document from
    */
   private _input: string | undefined;
 
   /**
-   * Local path to write the JSON-LD context to
+   * Local path to write HTML file to
    */
   private _output: string | undefined;
 

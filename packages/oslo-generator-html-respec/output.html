@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.6.1">
+<meta name="generator" content="ReSpec 32.7.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -24,6 +24,26 @@ dfn{cursor:pointer}
 </style>
         
         
+<style>
+
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th:first-child {
+    width: 15%;
+}
+table{
+  width: 100%;
+}
+
+</style>
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -82,7 +102,7 @@ dd{margin-left:0}
 .removeOnSave{display:none}
 }
 </style>
-<title>No Title</title>
+<title>RDF to ReSpec</title>
 <style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
@@ -99,16 +119,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     }
   ],
   "github": "w3c/respec",
-  "publishDate": "2023-03-27",
+  "publishDate": "2023-02-15T18:18:50.901Z",
   "shortName": "respec",
-  "publishISODate": "2023-03-26T22:00:00.000Z",
-  "generatedSubtitle": "Unofficial Draft 26 March 2023"
+  "publishISODate": "2023-02-15T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 15 February 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-UD"></head>
-    <body class="h-entry informative"><div class="head">
+   
+   
+  
+   
+    <body class="h-entry informative toc-inline"><div class="head">
     
-    <h1 id="title" class="title">No Title</h1> 
-    <p id="w3c-state">Unofficial Draft <time class="dt-published" datetime="03/26/2023">26 March 2023</time></p>
+    <h1 id="title" class="title">RDF to ReSpec</h1> <h2 id="subtitle" class="subtitle">Flanders Smart Data Space Overview</h2>
+    <p id="w3c-state">Unofficial Draft <time class="dt-published" datetime="2023-02-15">15 February 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -152,50 +176,1186 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <hr title="Separator for header">
   </div>
 
-    <section id="james"><div class="header-wrapper"><h2 id="x1-james"><bdi class="secno">1. </bdi>James</h2><a class="self-link" href="#james" aria-label="Permalink for Section 1."></a></div>
 
-    </section><section id="async-createrespecclasses-store-const-classes-store-getsubjects-core_1-ns-rdf-type-core_1-ns-rdfs-class-null-const-inpackageclasses-this-filteronscope-classes-store-return-inpackageclasses-map-subject-label-usagenote-return-id-1"><div class="header-wrapper"><h2 id="x2-async-createrespecclasses-store-const-classes-store-getsubjects-core_1-ns-rdf-type-core_1-ns-rdfs-class-null-const-inpackageclasses-this-filteronscope-classes-store-return-inpackageclasses-map-subject-label-usagenote-return-id-1"><bdi class="secno">2. </bdi>async createRespecClasses(store) {
-        const classes = store.getSubjects(core_1.ns.rdf("type"), core_1.ns.rdfs("Class"), null);
-        const inPackageClasses = this.filterOnScope(classes, store);
-        return inPackageClasses.map((subject) =&gt; {
-            // label, usagenote
-            return {
-                id: '1'
-            };
-        });
-    }</h2><a class="self-link" href="#async-createrespecclasses-store-const-classes-store-getsubjects-core_1-ns-rdf-type-core_1-ns-rdfs-class-null-const-inpackageclasses-this-filteronscope-classes-store-return-inpackageclasses-map-subject-label-usagenote-return-id-1" aria-label="Permalink for Section 2."></a></div>
 
-    </section><section id="async-createrespecattributes-store-return"><div class="header-wrapper"><h2 id="x3-async-createrespecattributes-store-return"><bdi class="secno">3. </bdi>async createRespecAttributes(store) {
-        return [];
-    }</h2><a class="self-link" href="#async-createrespecattributes-store-return" aria-label="Permalink for Section 3."></a></div>
+
+
+<br><br>
+This document describes a <b>vocabulary</b>, in this case <b>Json Test</b>. A vocabulary is a collection of reusable terms, namely classes and properties, whose meaning is fixed by means of a label and definition. Additional formal agreements are available for terms defined in this domain. For external terms, the formal conventions are taken from the external source.
+
+<section id="resume"><div class="header-wrapper"><h2 id="x1-resume"><bdi class="secno">1. </bdi>Resume</h2><a class="self-link" href="#resume" aria-label="Permalink for Section 1."></a></div>
+<br><br>
+
+</section><section id="status-of-this-document"><div class="header-wrapper"><h2 id="x2-status-of-this-document"><bdi class="secno">2. </bdi>Status of this document</h2><a class="self-link" href="#status-of-this-document" aria-label="Permalink for Section 2."></a></div>
+
+<br><br>
+
+</section><section id="license"><div class="header-wrapper"><h2 id="x3-license"><bdi class="secno">3. </bdi>License</h2><a class="self-link" href="#license" aria-label="Permalink for Section 3."></a></div>
+
+<br><br>
+
+</section><section id="conformity"><div class="header-wrapper"><h2 id="x4-conformity"><bdi class="secno">4. </bdi>Conformity</h2><a class="self-link" href="#conformity" aria-label="Permalink for Section 4."></a></div>
+
+An exchange of data, however the exchange takes place, conforms to this vocabulary when it uses the terminology (classes and properties) in a manner consistent with the semantics established in the latest version of the specification (domain, range , definition and usage) and does not use terminology from other vocabularies as an alternative to the proposed terminology included in this vocabulary.
+<br>
+
+</section><section id="classes"><div class="header-wrapper"><h2 id="x5-classes"><bdi class="secno">5. </bdi>Classes</h2><a class="self-link" href="#classes" aria-label="Permalink for Section 5."></a></div>
+<p>This section gives a formal definition to each class.</p>
+
+
+<section id="onveranderlijkobject"><div class="header-wrapper"><h3 id="x5-1-onveranderlijkobject"><bdi class="secno">5.1 </bdi>OnveranderlijkObject</h3><a class="self-link" href="#onveranderlijkobject" aria-label="Permalink for Section 5.1"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#OnveranderlijkObject">https://data.vlaanderen.be/ns/ldes#OnveranderlijkObject</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een onveranderlijk object is een object wiens status niet meer kan veranderen nadat het werd gecre�erd.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>OnveranderlijkObject</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table>
+
+
+
+</section><section id="rootnode"><div class="header-wrapper"><h3 id="x5-2-rootnode"><bdi class="secno">5.2 </bdi>Rootnode</h3><a class="self-link" href="#rootnode" aria-label="Permalink for Section 5.2"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#RootNode">https://data.vlaanderen.be/ns/ldes#RootNode</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een rootnode is een beginpagina, die zelf al leden kan bevatten, via wiens gelinkte pagina's alle leden kunnen gevonden worden.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>Rootnode</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td>
+    
+      <a href="https://w3id.org/tree#Node">https://w3id.org/tree#Node</a>
+    
+    </td>
+    
+
+  </tr><tr>
+    <th>Parent Label</th>
+    
+    <td>
+    
+      Node
+    
+    </td>
+    
+
+</tr></tbody></table>
+
+
+
+</section><section id="eventstreamview"><div class="header-wrapper"><h3 id="x5-3-eventstreamview"><bdi class="secno">5.3 </bdi>EventstreamView</h3><a class="self-link" href="#eventstreamview" aria-label="Permalink for Section 5.3"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#EventstreamView">https://data.vlaanderen.be/ns/ldes#EventstreamView</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>De event stream view connecteert de collectie met de rootnode zodanig dat alle leden van de collectie gevonden kunnen worden.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>EventstreamView</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table>
+
+
+
+</section><section id="versieeventstream"><div class="header-wrapper"><h3 id="x5-4-versieeventstream"><bdi class="secno">5.4 </bdi>VersieEventStream</h3><a class="self-link" href="#versieeventstream" aria-label="Permalink for Section 5.4"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#VersieEventStream">https://data.vlaanderen.be/ns/ldes#VersieEventStream</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een event stream waarvan de leden versies zijn.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>VersieEventStream</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td>
+    
+      <a href="https://w3id.org/ldes#EventStream">https://w3id.org/ldes#EventStream</a>
+    
+    </td>
+    
+
+  </tr><tr>
+    <th>Parent Label</th>
+    
+    <td>
+    
+      EventStream
+    
+    </td>
+    
+
+</tr></tbody></table>
+
+
+
+</section><section id="versiematerialisatie"><div class="header-wrapper"><h3 id="x5-5-versiematerialisatie"><bdi class="secno">5.5 </bdi>VersieMaterialisatie</h3><a class="self-link" href="#versiematerialisatie" aria-label="Permalink for Section 5.5"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#VersieMaterialisatie">https://data.vlaanderen.be/ns/ldes#VersieMaterialisatie</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een snapshot waarbij de versie-identificatoren zijn vervangen door object-identificatoren.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>VersieMaterialisatie</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td>
+    
+      <a href="https://w3id.org/tree#Collection">https://w3id.org/tree#Collection</a>
+    
+    </td>
+    
+
+  </tr><tr>
+    <th>Parent Label</th>
+    
+    <td>
+    
+      Collectie
+    
+    </td>
+    
+
+</tr></tbody></table>
+
+
+
+</section><section id="afgeleidecollectie"><div class="header-wrapper"><h3 id="x5-6-afgeleidecollectie"><bdi class="secno">5.6 </bdi>AfgeleideCollectie</h3><a class="self-link" href="#afgeleidecollectie" aria-label="Permalink for Section 5.6"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#AfgeleideCollectie">https://data.vlaanderen.be/ns/ldes#AfgeleideCollectie</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een collectie die afgeleid is van een andere collectie.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>AfgeleideCollectie</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td>
+    
+      <a href="https://w3id.org/tree#Collection">https://w3id.org/tree#Collection</a>
+    
+    </td>
+    
+
+  </tr><tr>
+    <th>Parent Label</th>
+    
+    <td>
+    
+      Collectie
+    
+    </td>
+    
+
+</tr></tbody></table>
+
+
+
+</section><section id="veranderlijkobject"><div class="header-wrapper"><h3 id="x5-7-veranderlijkobject"><bdi class="secno">5.7 </bdi>VeranderlijkObject</h3><a class="self-link" href="#veranderlijkobject" aria-label="Permalink for Section 5.7"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#VeranderlijkObject">https://data.vlaanderen.be/ns/ldes#VeranderlijkObject</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een veranderlijk object is een object wiens status nog kan veranderen nadat het werd gecre�erd.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>VeranderlijkObject</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table>
+
+
+
+</section><section id="collectielid"><div class="header-wrapper"><h3 id="x5-8-collectielid"><bdi class="secno">5.8 </bdi>CollectieLid</h3><a class="self-link" href="#collectielid" aria-label="Permalink for Section 5.8"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#CollectieLid">https://data.vlaanderen.be/ns/ldes#CollectieLid</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een object dat deel uitmaakt van een collectie.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>CollectieLid</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table>
+
+
+
+</section><section id="dataserviceldes"><div class="header-wrapper"><h3 id="x5-9-dataserviceldes"><bdi class="secno">5.9 </bdi>DataServiceLDES</h3><a class="self-link" href="#dataserviceldes" aria-label="Permalink for Section 5.9"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#DataServiceLDES">https://data.vlaanderen.be/ns/ldes#DataServiceLDES</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een verzameling van operaties die ofwel toegang bieden tot ��n of meer Linked Data Event Streams.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>DataServiceLDES</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td>
+    
+      <a href="http://www.w3.org/ns/dcat#DataService">http://www.w3.org/ns/dcat#DataService</a>
+    
+    </td>
+    
+
+  </tr><tr>
+    <th>Parent Label</th>
+    
+    <td>
+    
+      Dataservice
+    
+    </td>
+    
+
+</tr></tbody></table>
+
+
+
+</section><section id="snapshot"><div class="header-wrapper"><h3 id="x5-10-snapshot"><bdi class="secno">5.10 </bdi>Snapshot</h3><a class="self-link" href="#snapshot" aria-label="Permalink for Section 5.10"></a></div>
+
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Class</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#Snapshot">https://data.vlaanderen.be/ns/ldes#Snapshot</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een event stream van versies waarbij enkel laatste versie behouden blijft t.o.v. een opgegeven datum.</td>
+     
+  </tr>
+
+  <tr>
+    <th>Label</th>
+    
+    <td>Snapshot</td>
+     
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>Parent</th>
+    
+    <td>
+    
+      <a href="https://w3id.org/ldes#EventStream">https://w3id.org/ldes#EventStream</a>
+    
+    </td>
+    
+
+  </tr><tr>
+    <th>Parent Label</th>
+    
+    <td>
+    
+      EventStream
+    
+    </td>
+    
+
+</tr></tbody></table>
+
+
+
+
+</section></section><section id="attributes"><div class="header-wrapper"><h2 id="x6-attributes"><bdi class="secno">6. </bdi>Attributes</h2><a class="self-link" href="#attributes" aria-label="Permalink for Section 6."></a></div>
+<p>This section gives a formal definition to each attribute.</p>
+
+<section id="versiematerialisatietot"><div class="header-wrapper"><h3 id="x6-1-versiematerialisatietot"><bdi class="secno">6.1 </bdi>versieMaterialisatieTot</h3><a class="self-link" href="#versiematerialisatietot" aria-label="Permalink for Section 6.1"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#versieMaterialisatieTot">https://data.vlaanderen.be/ns/ldes#versieMaterialisatieTot</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Het tijdstip tot wanneer versies werden verwerkt.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/9c70f7059e82ec392ae5d2ca8e7bb997ace976447005dfdf4023e003884207e6">https://data.vlaanderen.be/ns/test/.well-known/id/9c70f7059e82ec392ae5d2ca8e7bb997ace976447005dfdf4023e003884207e6</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table></section><section id="snapshottot"><div class="header-wrapper"><h3 id="x6-2-snapshottot"><bdi class="secno">6.2 </bdi>snapshotTot</h3><a class="self-link" href="#snapshottot" aria-label="Permalink for Section 6.2"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#snapshotTot">https://data.vlaanderen.be/ns/ldes#snapshotTot</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Het tijdstip waarop de snapshot van de Linked Data Event Stream werd genomen.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/d646bc5b59d33b6c5cd23ca0f08ef49e7ca64a3ee4cd22b96e5051e996aef0b8">https://data.vlaanderen.be/ns/test/.well-known/id/d646bc5b59d33b6c5cd23ca0f08ef49e7ca64a3ee4cd22b96e5051e996aef0b8</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table></section><section id="retentiebeleid"><div class="header-wrapper"><h3 id="x6-3-retentiebeleid"><bdi class="secno">6.3 </bdi>retentiebeleid</h3><a class="self-link" href="#retentiebeleid" aria-label="Permalink for Section 6.3"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#retentiebeleid">https://data.vlaanderen.be/ns/ldes#retentiebeleid</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een retentiebeleid is een beleid volgens welke elementen (i.e. data) verwijderd zullen worden.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/156aee28fa5b951929bc3f94baaee311cbca5e5cdf53e7f70580a579547bca9b">https://data.vlaanderen.be/ns/test/.well-known/id/156aee28fa5b951929bc3f94baaee311cbca5e5cdf53e7f70580a579547bca9b</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table></section><section id="lid"><div class="header-wrapper"><h3 id="x6-4-lid"><bdi class="secno">6.4 </bdi>lid</h3><a class="self-link" href="#lid" aria-label="Permalink for Section 6.4"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#lid">https://data.vlaanderen.be/ns/ldes#lid</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een lid maakt deel uit van de collectie.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/9c70f7059e82ec392ae5d2ca8e7bb997ace976447005dfdf4023e003884207e6">https://data.vlaanderen.be/ns/test/.well-known/id/9c70f7059e82ec392ae5d2ca8e7bb997ace976447005dfdf4023e003884207e6</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table></section><section id="snapshotvan"><div class="header-wrapper"><h3 id="x6-5-snapshotvan"><bdi class="secno">6.5 </bdi>snapshotVan</h3><a class="self-link" href="#snapshotvan" aria-label="Permalink for Section 6.5"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#snapshotVan">https://data.vlaanderen.be/ns/ldes#snapshotVan</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Verwijst naar de originele Linked Data Event Stream.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/d646bc5b59d33b6c5cd23ca0f08ef49e7ca64a3ee4cd22b96e5051e996aef0b8">https://data.vlaanderen.be/ns/test/.well-known/id/d646bc5b59d33b6c5cd23ca0f08ef49e7ca64a3ee4cd22b96e5051e996aef0b8</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table></section><section id="versiematerialisatievan"><div class="header-wrapper"><h3 id="x6-6-versiematerialisatievan"><bdi class="secno">6.6 </bdi>versieMaterialisatieVan</h3><a class="self-link" href="#versiematerialisatievan" aria-label="Permalink for Section 6.6"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#versiematerialisatieVan">https://data.vlaanderen.be/ns/ldes#versiematerialisatieVan</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Verwijst naar de originele Linked Data Event Stream.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/9c70f7059e82ec392ae5d2ca8e7bb997ace976447005dfdf4023e003884207e6">https://data.vlaanderen.be/ns/test/.well-known/id/9c70f7059e82ec392ae5d2ca8e7bb997ace976447005dfdf4023e003884207e6</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table></section><section id="eventstreamview-0"><div class="header-wrapper"><h3 id="x6-7-eventstreamview"><bdi class="secno">6.7 </bdi>eventstreamView</h3><a class="self-link" href="#eventstreamview-0" aria-label="Permalink for Section 6.7"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#eventstreamView">https://data.vlaanderen.be/ns/ldes#eventstreamView</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>De event stream view connecteert de collectie met de rootnode zodanig dat alle leden van de collectie gevonden kunnen worden.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/534fba1b6e6f1bb3e1973b0a3b7110e8c0ca73bde6ab2735378277e3455db4b5">https://data.vlaanderen.be/ns/test/.well-known/id/534fba1b6e6f1bb3e1973b0a3b7110e8c0ca73bde6ab2735378277e3455db4b5</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table></section><section id="rootnode-0"><div class="header-wrapper"><h3 id="x6-8-rootnode"><bdi class="secno">6.8 </bdi>rootNode</h3><a class="self-link" href="#rootnode-0" aria-label="Permalink for Section 6.8"></a></div>
+
+
+<table>
+  <tbody><tr>
+    <th>Type</th>
+    <td>Attribute</td>
+  </tr>
+  <tr>
+    <th>URI</th>
+    <td><a href="https://data.vlaanderen.be/ns/ldes#rootNode">https://data.vlaanderen.be/ns/ldes#rootNode</a></td>
+  </tr>
+
+
+  <tr>
+    <th>Definition</th>
+    
+    <td>Een rootnode is een beginpagina, die zelf al leden kan bevatten, via wiens gelinkte pagina�s alle leden kunnen gevonden worden.</td>
+    
+
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Domain</th>
+    
+    <td><a href="https://data.vlaanderen.be/ns/test/.well-known/id/156aee28fa5b951929bc3f94baaee311cbca5e5cdf53e7f70580a579547bca9b">https://data.vlaanderen.be/ns/test/.well-known/id/156aee28fa5b951929bc3f94baaee311cbca5e5cdf53e7f70580a579547bca9b</a></td>
+    
+
+  </tr><tr>
+    <th>Range</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Scope</th>
+    
+    <td><a href="https://data.vlaanderen.be/id/concept/scope/InPackage">https://data.vlaanderen.be/id/concept/scope/InPackage</a></td>
+    
+
+  </tr><tr>
+    <th>UsageNote</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+  <tr>
+    <th>Parent Label</th>
+    
+    <td style="color:red;">Empty</td>
+  </tr>
+
+
+</tbody></table>
+
+
+</section></section><section id="external-terminology"><div class="header-wrapper"><h2 id="x7-external-terminology"><bdi class="secno">7. </bdi>External terminology</h2><a class="self-link" href="#external-terminology" aria-label="Permalink for Section 7."></a></div>
+
+<br><br>
+
+</section><section id="authors-and-contributors"><div class="header-wrapper"><h2 id="x8-authors-and-contributors"><bdi class="secno">8. </bdi>Authors and contributors</h2><a class="self-link" href="#authors-and-contributors" aria-label="Permalink for Section 8."></a></div>
+<b>Authors</b>
+
+<br><br>
+<b>contributors</b>
+
 
 <section id="abstract" class="introductory"><div class="header-wrapper"><h2 id="samenvatting">Samenvatting</h2><a class="self-link" href="#abstract" aria-label="Permalink for this Section"></a></div>
 
 </section>
 
-<section id="eigenschappen"><div class="header-wrapper"><h3 id="x3-1-eigenschappen"><bdi class="secno">3.1 </bdi>Eigenschappen</h3><a class="self-link" href="#eigenschappen" aria-label="Permalink for Section 3.1"></a></div>
+<section id="eigenschappen"><div class="header-wrapper"><h3 id="x8-1-eigenschappen"><bdi class="secno">8.1 </bdi>Eigenschappen</h3><a class="self-link" href="#eigenschappen" aria-label="Permalink for Section 8.1"></a></div>
 
-</section><section id="sotd" class="introductory"><div class="header-wrapper"><h2 id="status-of-this-document">Status of This Document</h2><a class="self-link" href="#sotd" aria-label="Permalink for this Section"></a></div><p>
+</section><section id="sotd" class="introductory"><div class="header-wrapper"><h2 id="status-of-this-document-0">Status of This Document</h2><a class="self-link" href="#sotd" aria-label="Permalink for this Section"></a></div><p>
       This document is a draft of a potential specification. It has no official
       standing of any kind and does not represent the support or consensus of
       any standards organization.
     </p><p>This is required.</p>
-</section><nav id="toc"><div class="header-wrapper"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><a class="self-link" href="#table-of-contents" aria-label="Permalink for this Section"></a></div><ol class="toc"><li class="tocline"><a class="tocxref" href="#james"><bdi class="secno">1. </bdi>James</a></li><li class="tocline"><a class="tocxref" href="#async-createrespecclasses-store-const-classes-store-getsubjects-core_1-ns-rdf-type-core_1-ns-rdfs-class-null-const-inpackageclasses-this-filteronscope-classes-store-return-inpackageclasses-map-subject-label-usagenote-return-id-1"><bdi class="secno">2. </bdi>async createRespecClasses(store) {
-        const classes = store.getSubjects(core_1.ns.rdf("type"), core_1.ns.rdfs("Class"), null);
-        const inPackageClasses = this.filterOnScope(classes, store);
-        return inPackageClasses.map((subject) =&gt; {
-            // label, usagenote
-            return {
-                id: '1'
-            };
-        });
-    }</a></li><li class="tocline"><a class="tocxref" href="#async-createrespecattributes-store-return"><bdi class="secno">3. </bdi>async createRespecAttributes(store) {
-        return [];
-    }</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#eigenschappen"><bdi class="secno">3.1 </bdi>Eigenschappen</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li></ol></li></ol></nav>
+</section>
 
 
-    
-</section><p role="navigation" id="back-to-top">
+<nav id="toc"><div class="header-wrapper"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><a class="self-link" href="#table-of-contents" aria-label="Permalink for this Section"></a></div><ol class="toc"><li class="tocline"><a class="tocxref" href="#resume"><bdi class="secno">1. </bdi>Resume</a></li><li class="tocline"><a class="tocxref" href="#status-of-this-document"><bdi class="secno">2. </bdi>Status of this document</a></li><li class="tocline"><a class="tocxref" href="#license"><bdi class="secno">3. </bdi>License</a></li><li class="tocline"><a class="tocxref" href="#conformity"><bdi class="secno">4. </bdi>Conformity</a></li><li class="tocline"><a class="tocxref" href="#classes"><bdi class="secno">5. </bdi>Classes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#onveranderlijkobject"><bdi class="secno">5.1 </bdi>OnveranderlijkObject</a></li><li class="tocline"><a class="tocxref" href="#rootnode"><bdi class="secno">5.2 </bdi>Rootnode</a></li><li class="tocline"><a class="tocxref" href="#eventstreamview"><bdi class="secno">5.3 </bdi>EventstreamView</a></li><li class="tocline"><a class="tocxref" href="#versieeventstream"><bdi class="secno">5.4 </bdi>VersieEventStream</a></li><li class="tocline"><a class="tocxref" href="#versiematerialisatie"><bdi class="secno">5.5 </bdi>VersieMaterialisatie</a></li><li class="tocline"><a class="tocxref" href="#afgeleidecollectie"><bdi class="secno">5.6 </bdi>AfgeleideCollectie</a></li><li class="tocline"><a class="tocxref" href="#veranderlijkobject"><bdi class="secno">5.7 </bdi>VeranderlijkObject</a></li><li class="tocline"><a class="tocxref" href="#collectielid"><bdi class="secno">5.8 </bdi>CollectieLid</a></li><li class="tocline"><a class="tocxref" href="#dataserviceldes"><bdi class="secno">5.9 </bdi>DataServiceLDES</a></li><li class="tocline"><a class="tocxref" href="#snapshot"><bdi class="secno">5.10 </bdi>Snapshot</a></li></ol></li><li class="tocline"><a class="tocxref" href="#attributes"><bdi class="secno">6. </bdi>Attributes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#versiematerialisatietot"><bdi class="secno">6.1 </bdi>versieMaterialisatieTot</a></li><li class="tocline"><a class="tocxref" href="#snapshottot"><bdi class="secno">6.2 </bdi>snapshotTot</a></li><li class="tocline"><a class="tocxref" href="#retentiebeleid"><bdi class="secno">6.3 </bdi>retentiebeleid</a></li><li class="tocline"><a class="tocxref" href="#lid"><bdi class="secno">6.4 </bdi>lid</a></li><li class="tocline"><a class="tocxref" href="#snapshotvan"><bdi class="secno">6.5 </bdi>snapshotVan</a></li><li class="tocline"><a class="tocxref" href="#versiematerialisatievan"><bdi class="secno">6.6 </bdi>versieMaterialisatieVan</a></li><li class="tocline"><a class="tocxref" href="#eventstreamview-0"><bdi class="secno">6.7 </bdi>eventstreamView</a></li><li class="tocline"><a class="tocxref" href="#rootnode-0"><bdi class="secno">6.8 </bdi>rootNode</a></li></ol></li><li class="tocline"><a class="tocxref" href="#external-terminology"><bdi class="secno">7. </bdi>External terminology</a></li><li class="tocline"><a class="tocxref" href="#authors-and-contributors"><bdi class="secno">8. </bdi>Authors and contributors</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#eigenschappen"><bdi class="secno">8.1 </bdi>Eigenschappen</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li></ol></li></ol></nav></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
   </p><script id="respec-dfn-panel">(() => {
 // @ts-check

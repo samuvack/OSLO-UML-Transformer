@@ -33,7 +33,8 @@
     "n3": "^1.16.3",
     "nunjucks": "^3.2.3",
     "path": "^0.12.7",
-    "respec": "^32.6.1"
+    "respec": "^32.6.1",
+    "streamify-string": "^1.0.1"
   },
   "devDependencies": {
     "@types/nunjucks": "^3.2.1"
