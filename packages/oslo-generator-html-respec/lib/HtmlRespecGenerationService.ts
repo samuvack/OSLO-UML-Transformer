@@ -1,15 +1,15 @@
-import { IGenerationService, ns } from "@oslo-flanders/core";
-import { ServiceIdentifier } from "@oslo-flanders/core";
-import { inject, injectable } from "inversify";
-import { createN3Store } from "@oslo-flanders/core";
-import { HtmlRespecGenerationServiceConfiguration } from "./config/HtmlRespecGenerationServiceConfiguration";
-import * as nj from "nunjucks";
-import { resolve } from "path";
-import { writeFile, writeFileSync } from "fs";
-import { execSync } from "child_process";
-import * as N3 from "n3";
-import type * as RDF from "@rdfjs/types";
+import { execSync } from 'child_process';
+import { writeFileSync } from 'fs';
+import { resolve } from 'path';
+import type { IGenerationService } from '@oslo-flanders/core';
+import { ns, ServiceIdentifier, createN3Store } from '@oslo-flanders/core';
 
+import type * as RDF from '@rdfjs/types';
+import { inject, injectable } from 'inversify';
+
+import type * as N3 from 'n3';
+import * as nj from 'nunjucks';
+import { HtmlRespecGenerationServiceConfiguration } from './config/HtmlRespecGenerationServiceConfiguration';
 
 @injectable()
 export class HtmlRespecGenerationService implements IGenerationService {
@@ -17,7 +17,7 @@ export class HtmlRespecGenerationService implements IGenerationService {
 
   public constructor(
     @inject(ServiceIdentifier.Configuration)
-    config: HtmlRespecGenerationServiceConfiguration
+    config: HtmlRespecGenerationServiceConfiguration,
   ) {
     this.configuration = config;
   }
@@ -29,345 +29,262 @@ export class HtmlRespecGenerationService implements IGenerationService {
 
     const [classes, attributes] = await Promise.all([
       this.createRespecClasses(store),
-      this.createRespecAttributes(store)
+      this.createRespecAttributes(store),
     ]);
 
-    const html = nj.render("index.njk", {
-      name: "Json Test",
+    const html = nj.render('index.njk', {
+      name: 'Json Test',
       respecConfig: this.createRespecConfig(),
       classes,
-      attributes
+      attributes,
     });
-    writeFileSync("rendered.html", html);
+    writeFileSync('rendered.html', html);
     execSync(`npm --prefix ${__dirname}/.. run generate-respec`);
   }
 
   private createRespecConfig(): string {
     const config = {
-      specStatus: "unofficial",
-      editors: [{ name: "Dwight", url: "https://your-site.com" }],
-      github: "w3c/respec",
+      specStatus: 'unofficial',
+      github: 'w3c/respec',
+      editors: [{ name: 'Dwight', url: 'www.test.com' }],
       publishDate: new Date(),
-      shortName: "respec",
+      shortName: 'respec',
     };
     return `<script class="remove">var respecConfig = ${JSON.stringify(
-      config
+      config,
     )}</script>`;
   }
 
-  //CLASSES
+  // Mijn column : editors, contributors, authors
+
+  // CLASSES
   public async createRespecClasses(store: N3.Store): Promise<any[]> {
-    let languageValue = "nl";
-    const classes = store.getSubjects(ns.rdf("type"), ns.owl("Class"), null);
+    const languageValue = 'nl';
+    const classes = store.getSubjects(ns.rdf('type'), ns.owl('Class'), null);
     const inPackageClasses = this.filterOnScope(classes, store);
-    return inPackageClasses.map((subject) => {
-      const assignedUri = store.getObjects(
-        subject,
-        ns.example("assignedUri"),
-        null
-      )[0];
-      
-      const scope = store.getObjects(
-        subject,
-        "http://example.org/scope",
-        null
-      )[0];
-      const maxCount = store.getObjects(subject, ns.owl("maxCount"), null)[0];
-      const minCount = store.getObjects(subject, ns.owl("minCount"), null)[0];
-      const parents = store.getObjects(subject, ns.rdfs("subClassOf"), null);
-      const parentInformation: { id: RDF.NamedNode; label: RDF.Literal }[] = [];
+    return inPackageClasses.map(subject => {
+      const assignedUri = store
+        .getObjects(subject, ns.example('assignedUri'), null)
+        .shift();
 
-      //filter out array defintion from graph
-      const definitions = store.getObjects(subject, ns.rdfs("comment"), null);
-      const definitionInformation: { language: string; definition: string }[] =
-        [];
+      const maxCount = store
+        .getObjects(subject, ns.owl('maxCount'), null)
+        .shift();
+      const minCount = store
+        .getObjects(subject, ns.owl('minCount'), null)
+        .shift();
+      const parents = store.getObjects(subject, ns.rdfs('subClassOf'), null);
+      const parentAssignedUris: RDF.NamedNode[] = [];
+      const definition = store
+        .getObjects(subject, ns.rdfs('comment'), null)
+        .find(x => (<RDF.Literal>x).language === this.configuration.language);
+      const label = store
+        .getObjects(subject, ns.rdfs('label'), null)
+        .find(x => (<RDF.Literal>x).language === this.configuration.language);
 
-      definitions.forEach((definition) => {
-        if (definition.language === languageValue) {
-          console.log("test:", definition.language);
-          definitionInformation.push({
-            language: definition.language,
-            definition: definition.value,
-          });
-        }
-      });
-
-      //filter out array label from graph
-      const labels = store.getObjects(subject, ns.rdfs("label"), null);
-      const labelInformation: { language: string; label: string }[] =
-        [];
-
-      labels.forEach((label) => {
-        if (label.language === languageValue) {
-          console.log("test:", label.language);
-          labelInformation.push({
-            language: label.language,
-            label: label.value,
-          });
-        }
-      });
-      //console.log(definitionInformation);
-
-      parents.forEach((parent) => {
-        console.log("parents", parent.id);
-        let parentAssignedUri = store.getObjects(
-          parent,
-          ns.example("assignedUri"),
-          null
-        )[0];
-        let parentLabel = store.getObjects(parent, ns.rdfs("label"), null)[0];
-        if (!parentAssignedUri || !parentLabel) {
+      parents.forEach(parent => {
+        // Console.log("parents", parent.id);
+        let parentAssignedUri = store
+          .getObjects(parent, ns.example('assignedUri'), null)
+          .shift();
+        if (!parentAssignedUri) {
           const statementIds = store.getSubjects(
-            ns.rdf("type"),
-            ns.rdf("Statement"),
-            null
+            ns.rdf('type'),
+            ns.rdf('Statement'),
+            null,
           );
           const statementSubjectPredicateSubjects = store.getSubjects(
-            ns.rdf("subject"),
+            ns.rdf('subject'),
             subject,
-            null
+            null,
           );
           const statementPredicatePredicateSubjects = store.getSubjects(
-            ns.rdf("predicate"),
-            ns.rdfs("subClassOf"),
-            null
+            ns.rdf('predicate'),
+            ns.rdfs('subClassOf'),
+            null,
           );
+
           const statementObjectPredicateSubjects = store.getSubjects(
-            ns.rdf("object"),
+            ns.rdf('object'),
             parent,
-            null
+            null,
           );
+          const targetSubjects = statementIds
+            .filter(x =>
+              statementSubjectPredicateSubjects.some(y => y.value === x.value))
+            .filter(x =>
+              statementPredicatePredicateSubjects.some(
+                y => y.value === x.value,
+              ))
+            .filter(x =>
+              statementObjectPredicateSubjects.some(y => y.value === x.value));
 
-          const targetSubject = statementIds
-            .filter((x) => statementSubjectPredicateSubjects.includes(x))
-            .filter((x) => statementPredicatePredicateSubjects.includes(x))
-            .filter((x) => statementObjectPredicateSubjects.includes(x));
-
-          if (targetSubject.length === 0) {
-            console.log("Nothing found");
-            return;
+          if (targetSubjects.length > 1) {
+            throw new Error(`Found multiple statements with subject .`);
           }
+          const targetSubject = targetSubjects.shift();
 
-          if (targetSubject.length > 1) {
-            console.error("Length greater than 1");
-            return;
-          }
-
-          if (!parentAssignedUri) {
-            parentAssignedUri = store.getObjects(
-              targetSubject.shift()!,
-              ns.example("assignedUri"),
-              null
-            )[0];
-          }
-          if (!parentLabel) {
-            parentLabel = store.getObjects(
-              targetSubject.shift()!,
-              ns.rdfs("label"),
-              null
-            )[0];
+          if (targetSubject) {
+            parentAssignedUri = store
+              .getObjects(targetSubject, ns.example('assignedUri'), null)
+              .shift();
           }
         }
-
-        if (parentAssignedUri && parentLabel) {
-          console.log("todo");
-          parentInformation.push({
-            id: <RDF.NamedNode>parentAssignedUri,
-            label: <RDF.Literal>parentLabel,
-          });
-          // TODO
+        if (parentAssignedUri) {
+          parentAssignedUris.push(<RDF.NamedNode>parentAssignedUri);
         }
       });
 
       return {
-        ...(assignedUri && {
+        ...assignedUri && {
           id: assignedUri.value,
-        }),
-        /*...(definition && {
-          definition: definition.value,
-        }),*/
-
-        ...(maxCount && {
+        },
+        ...maxCount && {
           maxCount: maxCount.value,
-        }),
-        ...(minCount && {
-          minCount: maxCount.value,
-        }),
-        ...(parentInformation.length > 0 && {
-          parents: parentInformation, //: parents.forEach((parent) => {console.log(parent.id)}),
-          //parent_label: class.forEach((quad) => {if (quad.value === parent.id) {quad.value}),
-        }),
-
-        ...(definitionInformation.length > 0 && {
-          definitions: definitionInformation,
-        }),
-        ...(labelInformation.length > 0 && {
-          labels: labelInformation,
-        }),
-        ...(scope && {
-          scope: scope,
-        }),
-      };
-    });
-  }
-
-  public async createRespecAttributes(store: N3.Store): Promise<any[]> {
-    let language_value = "nl";
-    const datatypes = store.getSubjects(
-      ns.rdf("type"),
-      ns.owl("DatatypeProperty"),
-      null
-    );
-    const objectproperty = store.getSubjects(
-      ns.rdf("type"),
-      ns.owl("ObjectProperty"),
-      null
-    );
-
-    const inPackageDataType = this.filterOnScope(datatypes, store);
-    const inPackageObjectProperty = this.filterOnScope(objectproperty, store);
-
-    return [...inPackageDataType, ...inPackageObjectProperty].map((subject) => {
-      const assignedUri = store.getObjects(subject,ns.example("assignedUri"), null)[0];
-      const definition = store.getObjects(subject, ns.rdfs("comment"), null)[0];
-
-
-      
-      const label = store.getObjects(subject, ns.rdfs("label"), null)[0];
-      const maxCount = store.getObjects(subject, ns.owl("maxCount"), null)[0];
-      const minCount = store.getObjects(subject, ns.owl("minCount"), null)[0];
-      const domain = store.getObjects(subject, ns.rdfs("domain"), null)[0];
-      const usageNote = store.getObjects(
-        subject,
-        ns.example("usageNote"),
-        null
-      )[0];
-      const scope = store.getObjects(subject, ns.example("scope"), null)[0];
-      
-
-      return {
-        ...(assignedUri && {
-          id: assignedUri.value,
-        }),
-        ...(definition && {
-          definition: definition.value,
-        }),
-        ...(label && {
-          label: label.value,
-        }),
-        ...(maxCount && {
-          maxCount: maxCount.value,
-        }),
-        ...(minCount && {
+        },
+        ...minCount && {
           minCount: minCount.value,
-        }),
+        },
+        ...parentAssignedUris.length > 0 && {
+          parents: parentAssignedUris.values,
+        },
 
-        ...(domain && {
-          domain: domain.value,
-        }),
-        ...(usageNote && {
-          usageNote: usageNote.value,
-        }),
-        ...(scope && {
-          scope: scope.value,
-        }),
+        ...definition && {
+          definition: definition.value,
+        },
+        ...label && {
+          label: label.value,
+        },
       };
     });
   }
 
-
-/*
-
+  // ATTRIBUTES
   public async createRespecAttributes(store: N3.Store): Promise<any[]> {
     const datatypes = store.getSubjects(
-      ns.rdf("type"),
-      ns.owl("DatatypeProperty"),
-      null
+      ns.rdf('type'),
+      ns.owl('DatatypeProperty'),
+      null,
     );
-    const objectproperty = store.getSubjects(
-      ns.rdf("type"),
-      ns.owl("ObjectProperty"),
-      null
+    const objectproperties = store.getSubjects(
+      ns.rdf('type'),
+      ns.owl('ObjectProperty'),
+      null,
     );
-
-    const assignedUri = store.getObjects(subject, ns.example("assignedUri"), null)[0];
-    const definition = store.getObjects(subject, ns.rdfs("comment"), null)[0];
-    const label = store.getObjects(subject, ns.rdfs("label"), null)[0];
-    const maxCount = store.getObjects(subject, ns.owl("maxCount"), null)[0];
-    const minCount = store.getObjects(subject, ns.owl("minCount"), null)[0];
-     
 
     const inPackageDataType = this.filterOnScope(datatypes, store);
-    const inPackageObjectProperty = this.filterOnScope(objectproperty, store);
+    const inPackageObjectProperty = this.filterOnScope(objectproperties, store);
 
-    return [...inPackageDataType, ...inPackageObjectProperty].map((subject) => {
-      // label, usagenote
+    return [...inPackageDataType, ...inPackageObjectProperty].map(subject => {
+      const assignedUri = store
+        .getObjects(subject, ns.example('assignedUri'), null)
+        .shift();
+      // Filter out array label from graph
+      const definition = store
+        .getObjects(subject, ns.rdfs('comment'), null)
+        .find(x => (<RDF.Literal>x).language === this.configuration.language);
+      const label = store
+        .getObjects(subject, ns.rdfs('label'), null)
+        .find(x => (<RDF.Literal>x).language === this.configuration.language);
+
+      // SubPropertyOf TODO ------------------------------------------------------------------------------------------
+
+      const maxCount = store
+        .getObjects(subject, ns.shacl('maxCount'), null)
+        .shift();
+      // Console.log(maxCount);
+      const minCount = store
+        .getObjects(subject, ns.shacl('minCount'), null)
+        .shift();
+      const domain = store.getObjects(subject, ns.rdfs('domain'), null).shift();
+      const usageNote = store
+        .getObjects(subject, ns.vann('usageNote'), null)
+        .find(x => (<RDF.Literal>x).language === this.configuration.language);
+      // Console.log(usageNote);
       return {
-        id: subject.value,
+        ...assignedUri && {
+          id: assignedUri.value,
+        },
+        ...definition && {
+          definition: definition.value,
+        },
+        ...label && {
+          label: label.value,
+        },
+
+        ...maxCount && {
+          maxCount: maxCount.value,
+        },
+        ...minCount && {
+          minCount: minCount.value,
+        },
+        ...domain && {
+          domain: domain.value,
+        },
+        ...usageNote && {
+          usageNote: usageNote.value,
+        },
       };
     });
   }
 
-*/
-
-  //Authors
+  // Authors
   public async createRespecAuthors(store: N3.Store): Promise<any[]> {
     const authors = store.getQuads(
-      ns.rdf("type"),
-      ns.foaf("Person"),
-      ns.foaf("maker"),
-      null
+      ns.rdf('type'),
+      ns.foaf('Person'),
+      ns.foaf('maker'),
+      null,
     );
 
     const inPackageAuthors = this.filterOnScope(authors, store);
     console.log(authors);
-    return [inPackageAuthors].map((subject) => {
-      // label, usagenote
-      return {
-        id: subject.values,
-      };
-    });
+    return [inPackageAuthors].map(subject =>
+    // Label, usagenote
+    ({
+      id: subject.values,
+    }));
   }
 
-  //editors
-  /*
-   "editors": {
-        "@type": "foaf:Person",
-        "@id": "rec:editor"
-      },
+  // Editors
+  //
+  // "editors": {
+  //      "@type": "foaf:Person",
+  //      "@id": "rec:editor"
+  //    },
+  //
+  //
 
-*/
+  // contributors
+  //
+  //  "contributors": {
+  //    "@type": "foaf:Person",
+  //    "@id": "dcterms:contributor"
+  //  }
+  //
 
-  //contributors
-  /*
-      "contributors": {
-        "@type": "foaf:Person",
-        "@id": "dcterms:contributor"
-      }
-*/
+  // affiliation
+  //
+  //  "affiliation": {
+  //    "@id": "http://schema.org/affiliation"
+  //  }
+  //
 
-  //affiliation
-  /*
-      "affiliation": {
-        "@id": "http://schema.org/affiliation"
-      }
-*/
-
-  //Get all the properties of a class
+  // Get all the properties of a class
 
   private filterOnScope(
     subjects: RDF.Quad_Subject[],
-    store: N3.Store
+    store: N3.Store,
   ): RDF.Quad_Subject[] {
-    return subjects.filter((subject) => {
-      const scopes = store.getObjects(subject, ns.example("scope"), null);
+    return subjects.filter(subject => {
+      const scopes = store.getObjects(subject, ns.example('scope'), null);
 
       if (scopes.length === 0) {
         throw new Error(`No scope found for ${subject}.`);
       }
       const scope = scopes.shift()!;
       if (
-        scope.value === "https://data.vlaanderen.be/id/concept/scope/InPackage"
+        scope.value === 'https://data.vlaanderen.be/id/concept/scope/InPackage'
       ) {
         return true;
       }

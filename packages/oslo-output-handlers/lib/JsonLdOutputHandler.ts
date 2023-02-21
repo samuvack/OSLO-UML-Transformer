@@ -60,7 +60,7 @@ export class JsonLdOutputHandler implements IOutputHandler {
   private async getClasses(store: Store<Quad>): Promise<any> {
     const quads = store.getQuads(null, ns.rdf('type'), ns.owl('Class'), null);
     return quads.reduce<any[]>((jsonLdClasses, quad) => {
-      // skos:Concept classes are not being published separately, but only
+      // Skos:Concept classes are not being published separately, but only
       // as part of an attribute's range
       if (quad.subject.equals(ns.skos('Concept'))) {
         return jsonLdClasses;

@@ -1,12 +1,10 @@
-import { CliArgv, Logger, LogLevel, ServiceIdentifier, VoidLogger, WinstonLogger } from '@oslo-flanders/core';
-import { AppRunner } from '@oslo-flanders/core';
+import type { CliArgv, Logger, LogLevel } from '@oslo-flanders/core';
+import { ServiceIdentifier, VoidLogger, WinstonLogger, AppRunner } from '@oslo-flanders/core';
+
 import yargs from 'yargs';
 import { container } from './config/DependencyInjectionConfig';
-import {HtmlRespecGenerationServiceConfiguration} from './config/HtmlReSpecGenerationServiceConfiguration';
-import {HtmlRespecGenerationService} from './HtmlReSpecGenerationService';
-
-
-
+import type { HtmlRespecGenerationServiceConfiguration } from './config/HtmlReSpecGenerationServiceConfiguration';
+import type { HtmlRespecGenerationService } from './HtmlReSpecGenerationService';
 
 export class HtmlRespecGenerationServiceRunner extends AppRunner {
   public async runCli(argv: CliArgv): Promise<void> {
@@ -39,10 +37,6 @@ export class HtmlRespecGenerationServiceRunner extends AppRunner {
 
     const generationService = container.get<HtmlRespecGenerationService>(ServiceIdentifier.GenerationService);
     generationService.run().catch(error => console.error(error));
-  
   }
-
 }
-
-
 

@@ -1,4 +1,5 @@
-<h2>{{attribute.label}}</h2>
+<h2> {{attribute.label}} </h2>
+
 
 
 <table>
@@ -14,22 +15,30 @@
 
   <tr>
     <th>Definition</th>
-    {% if attribute.definition %}
+    {% if attribute.definition%}
     <td>{{attribute.definition}}</td>
-    {% else %}
+     {% else %}
     <td style="color:red;">Empty</td>
+  {%endif%}
   </tr>
-{% endif %}
-
 
   <tr>
+    <th>Label</th>
+    {% if attribute.label%}
+    <td>{{attribute.label}}</td>
+     {% else %}
+    <td style="color:red;">Empty</td>
+ {%endif%}
+  </tr>
+
+   <tr>
     <th>UsageNote</th>
     {% if attribute.usageNote %}
     <td>{{attribute.usageNote}}</td>
-    {% else %}
+     {% else %}
     <td style="color:red;">Empty</td>
+    {% endif %}
   </tr>
-{% endif %}
 
   <tr>
     <th>Domain</th>
@@ -50,44 +59,18 @@
 {% endif %}
 
   <tr>
-    <th>Scope</th>
-    {% if attribute.scope %}
-    <td>{{attribute.scope| urlize() | safe}}</td>
+    <th>maxCount</th>
+    {% if attribute.maxCount %}
+    <td>{{attribute.maxCount}}</td>
     {% else %}
     <td style="color:red;">Empty</td>
   </tr>
 {% endif %}
 
   <tr>
-    <th>UsageNote</th>
-    {% if attribute.usageNote %}
-    <td>{{attribute.usageNote}}</td>
-    {% else %}
-    <td style="color:red;">Empty</td>
-  </tr>
-{% endif %}
-
-  <tr>
-    <th>Parent</th>
-    {% if class.parents %}
-    <td>
-    {% for parent in class.parents%}
-      {{parent.id.value}}
-    {% endfor %}
-    </td>
-    {% else %}
-    <td style="color:red;">Empty</td>
-  </tr>
-{% endif %}
-
-  <tr>
-    <th>Parent Label</th>
-    {% if class.parents %}
-    <td>
-    {% for parent in class.parents%}
-      {{parent.label.value}}
-    {% endfor %}
-    </td>
+    <th>minCount</th>
+    {% if attribute.minCount %}
+    <td>{{attribute.minCount}}</td>
     {% else %}
     <td style="color:red;">Empty</td>
   </tr>

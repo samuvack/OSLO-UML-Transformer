@@ -1,10 +1,9 @@
-import type { IConfiguration, YargsParams } from "@oslo-flanders/core";
-import { injectable } from "inversify";
+import type { IConfiguration, YargsParams } from '@oslo-flanders/core';
+import { injectable } from 'inversify';
 
 @injectable()
 export class HtmlRespecGenerationServiceConfiguration
-  implements IConfiguration
-{
+implements IConfiguration {
   /**
    * Local path or URL to JSON-LD file to generate ReSpec HTML document from
    */
@@ -43,7 +42,7 @@ export class HtmlRespecGenerationServiceConfiguration
   public get language(): string {
     if (!this._language) {
       throw new Error(
-        `Trying to access property "language" before it was set.`
+        `Trying to access property "language" before it was set.`,
       );
     }
     return this._language;
