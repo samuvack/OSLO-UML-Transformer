@@ -53,15 +53,18 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
       let definingPackageUri: URL | undefined;
 
       // Here, we check the value of the 'package' tag.
-      // If there was no value, both source and destination must be defined in the same package.
+      // If there was no value, both source and destination should be defined in the same package.
       // If there was a value, we check that the same package name is used for different packages,
-      // (otherwise we log a warning)
+      // otherwise, we use the fallback uri
       if (!packageName) {
-        const sourcePackageId = model.elements.find(x => x.id === connector.sourceObjectId)!.packageId;
-        const destinationPackageId = model.elements.find(x => x.id === connector.destinationObjectId)!.packageId;
+        const sourcePackage = model.elements.find(x => x.id === connector.sourceObjectId);
+        const destinationPackage = model.elements.find(x => x.id === connector.destinationObjectId);
 
-        if (sourcePackageId === destinationPackageId) {
-          definingPackageUri = uriRegistry.packageIdUriMap.get(sourcePackageId)!;
+        if (sourcePackage && destinationPackage && sourcePackage.packageId === destinationPackage.packageId) {
+          definingPackageUri = uriRegistry.packageIdUriMap.get(sourcePackage.packageId)!;
+        } else {
+          this.logger.warn(`Can not determine the correct base URI for connector with EA guid ${connector.eaGuid}.`);
+          definingPackageUri = new URL(uriRegistry.fallbackBaseUri);
         }
       } else {
         const packageObject = model.packages.find(x => x.name === packageName);
@@ -72,19 +75,11 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
         definingPackageUri = new URL(uriRegistry.packageIdUriMap.get(packageObject.packageId)!);
       }
 
-      // If there is no value for the 'uri' tag
       if (!connectorUri) {
-        // Then the connector must somehow receive a value through the 'package' tag
-        if (!definingPackageUri) {
-          // TODO: log message
-          return;
-        }
-
         let localName = getTagValue(connector, TagNames.LocalName, null);
 
         if (!localName) {
-          // TODO: log message
-          return;
+          throw new Error(`Unable to find value for "name" tag in connector with EA guid ${connector.eaGuid}.`);
         }
 
         localName = convertToCase(localName);
@@ -100,6 +95,7 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
   public createQuads(object: NormalizedConnector, uriRegistry: UriRegistry, model: DataRegistry): RDF.Quad[] {
     const quads: RDF.Quad[] = [];
 
+    const connectorWellKnownId = this.df.namedNode(`${this.config.baseUri}/.well-known/id/${object.osloGuid}`);
     const connectorUri = uriRegistry.connectorOsloIdUriMap.get(object.id);
 
     if (!connectorUri) {
@@ -107,50 +103,41 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
     }
 
     const connectorUriNamedNode = this.df.namedNode(connectorUri.toString());
-    quads.push(this.df.quad(connectorUriNamedNode, ns.rdf('type'), ns.owl('ObjectProperty')));
+
+    quads.push(
+      this.df.quad(connectorWellKnownId, ns.rdf('type'), ns.owl('ObjectProperty')),
+      this.df.quad(connectorWellKnownId, ns.example('assignedUri'), connectorUriNamedNode),
+    );
 
     const definitionValues = this.getDefinition(object);
-    definitionValues.forEach(x => quads.push(this.df.quad(connectorUriNamedNode, ns.rdfs('comment'), x)));
+    definitionValues.forEach(x => quads.push(this.df.quad(connectorWellKnownId, ns.rdfs('comment'), x)));
 
     const labelValues = this.getLabel(object);
-    labelValues.forEach(x => quads.push(this.df.quad(connectorUriNamedNode, ns.rdfs('label'), x)));
+    labelValues.forEach(x => quads.push(this.df.quad(connectorWellKnownId, ns.rdfs('label'), x)));
 
     const usageNoteValues = this.getUsageNote(object);
-    usageNoteValues.forEach(x => quads.push(this.df.quad(connectorUriNamedNode, ns.vann('usageNote'), x)));
+    usageNoteValues.forEach(x => quads.push(this.df.quad(connectorWellKnownId, ns.vann('usageNote'), x)));
 
     const domainObject = model.elements.find(x => x.id === object.sourceObjectId);
 
     if (domainObject) {
-      const domainUri = uriRegistry.elementIdUriMap.get(domainObject.id);
-
-      if (!domainUri) {
-        throw new Error(`No URI was found for element with EA guid ${domainObject.eaGuid} 
-        while assigning the domain for connector with EA guid ${object.eaGuid}`);
-      }
-
-      const domainUriNamedNode = this.df.namedNode(domainUri.toString());
+      const domainWellKnownId = this.df.namedNode(`${this.config.baseUri}/.well-known/id/${domainObject.osloGuid}`);
       quads.push(this.df.quad(
-        connectorUriNamedNode,
+        connectorWellKnownId,
         ns.rdfs('domain'),
-        domainUriNamedNode,
+        domainWellKnownId,
       ));
     }
 
     const rangeObject = model.elements.find(x => x.id === object.destinationObjectId);
 
     if (rangeObject) {
-      const rangeUri = uriRegistry.elementIdUriMap.get(rangeObject.id);
+      const rangeWellKnownId = this.df.namedNode(`${this.config.baseUri}/.well-known/id/${rangeObject.osloGuid}`);
 
-      if (!rangeUri) {
-        throw new Error(`No URI was found for element with EA guid ${rangeObject.eaGuid} 
-        while assigning the range for connector with EA guid ${object.eaGuid}`);
-      }
-
-      const rangeUriNamedNode = this.df.namedNode(rangeUri.toString());
       quads.push(this.df.quad(
-        connectorUriNamedNode,
+        connectorWellKnownId,
         ns.rdfs('range'),
-        rangeUriNamedNode,
+        rangeWellKnownId,
       ));
     }
 
@@ -162,7 +149,7 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
 
     const scope = this.getScope(object, packageBaseUri.toString(), uriRegistry.connectorOsloIdUriMap);
     quads.push(this.df.quad(
-      connectorUriNamedNode,
+      connectorWellKnownId,
       ns.example('scope'),
       this.df.namedNode(scope),
     ));
@@ -170,30 +157,34 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
     let minCardinality;
     let maxCardinality;
 
-    if (object.cardinality.includes('..')) {
-      [minCardinality, maxCardinality] = object.cardinality.split('..');
-    } else {
-      minCardinality = maxCardinality = object.cardinality;
-    }
+    if (object.cardinality) {
+      if (object.cardinality.includes('..')) {
+        [minCardinality, maxCardinality] = object.cardinality.split('..');
+      } else {
+        minCardinality = maxCardinality = object.cardinality;
+      }
 
-    quads.push(
-      this.df.quad(
-        connectorUriNamedNode,
-        ns.shacl('minCount'),
-        this.df.literal(minCardinality),
-      ),
-      this.df.quad(
-        connectorUriNamedNode,
-        ns.shacl('maxCount'),
-        this.df.literal(maxCardinality),
-      ),
-    );
+      quads.push(
+        this.df.quad(
+          connectorWellKnownId,
+          ns.shacl('minCount'),
+          this.df.literal(minCardinality),
+        ),
+        this.df.quad(
+          connectorWellKnownId,
+          ns.shacl('maxCount'),
+          this.df.literal(maxCardinality),
+        ),
+      );
+    } else {
+      this.logger.warn(`Unable to determine cardinality for connector with EA guid ${object.eaGuid}.`);
+    }
 
     const parentUri = getTagValue(object, TagNames.ParentUri, null);
     if (parentUri) {
       quads.push(
         this.df.quad(
-          connectorUriNamedNode,
+          connectorWellKnownId,
           ns.rdfs('subPropertyOf'),
           this.df.namedNode(parentUri),
         ),
@@ -324,9 +315,6 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
       return [];
     }
 
-    // In case of an association class, we use the package tag of the association class
-    // TODO: verify this with the editors
-    // Other strategy could be to log an error if connector tags don't have a package tag
     const assocationObject = elements.find(x => x.id === connector.associationClassId);
 
     if (!assocationObject) {
@@ -334,50 +322,83 @@ export class ConnectorConverterHandler extends ConverterHandler<NormalizedConnec
       return [];
     }
 
-    let sourceObjectName = `${assocationObject.name}.${sourceObject.name}`;
-    let destinationObjectName = `${assocationObject.name}.${destinationObject.name}`;
-    let sourceLabel = sourceObject.name;
-    let destinationLabel = destinationObject.name;
+    let sourceObjectIdentifier = `${assocationObject.name}.${convertToCase(sourceObject.name)}`;
+    let destinationObjectIdentifier = `${assocationObject.name}.${convertToCase(destinationObject.name)}`;
+
+    let sourceLabel: string = sourceObjectIdentifier;
+    let destinationLabel: string = destinationObjectIdentifier;
 
     // In case of a self-association
     if (connector.sourceObjectId === connector.destinationObjectId) {
-      sourceObjectName = `${sourceObjectName}.source`;
-      destinationObjectName = `${destinationObjectName}.target`;
+      sourceObjectIdentifier = `${sourceObjectIdentifier}.source`;
+      destinationObjectIdentifier = `${destinationObjectIdentifier}.target`;
       sourceLabel = `${sourceLabel} (source)`;
       destinationLabel = `${destinationLabel} (target)`;
     }
 
-    // FIXME: classes should have a package tag defined
-    // FIXME: is adding a package tag still necessary?
-    const sourceLabelTag: EaTag = {
+    sourceLabel = getTagValue(
+      assocationObject,
+      this.config.specificationType === 'ApplicationProfile' ?
+        TagNames.AssociationSourceApLabel :
+        TagNames.AssociationSourceLabel,
+      null,
+    ) || sourceLabel;
+
+    destinationLabel = getTagValue(
+      assocationObject,
+      this.config.specificationType === 'ApplicationProfile' ?
+        TagNames.AssociationTargetApLabel :
+        TagNames.AssociationTargetLabel,
+      null,
+    ) || destinationLabel;
+
+    const sourceConnectorTags: EaTag[] = [{
       id: Date.now(),
       tagName: 'label',
       tagValue: sourceLabel,
-    };
+    }];
 
-    const destinationLabelTag: EaTag = {
+    const sourceUri = getTagValue(assocationObject, TagNames.AssociationSourceUri, null);
+    if (sourceUri) {
+      sourceConnectorTags.push({
+        id: Date.now(),
+        tagName: 'uri',
+        tagValue: sourceUri,
+      });
+    }
+
+    const destinationConnectorTags: EaTag[] = [{
       id: Date.now(),
       tagName: 'label',
       tagValue: destinationLabel,
-    };
+    }];
+
+    const destinationUri = getTagValue(assocationObject, TagNames.AssociationTargetUri, null);
+    if (destinationUri) {
+      destinationConnectorTags.push({
+        id: Date.now(),
+        tagName: 'uri',
+        tagValue: destinationUri,
+      });
+    }
 
     return [
       new NormalizedConnector(
         connector,
-        sourceObjectName,
+        sourceObjectIdentifier,
         connector.associationClassId!,
         connector.sourceObjectId,
         '1',
-        [sourceLabelTag],
+        sourceConnectorTags,
         NormalizedConnectorTypes.AssociationClassConnector,
       ),
       new NormalizedConnector(
         connector,
-        destinationObjectName,
+        destinationObjectIdentifier,
         connector.associationClassId!,
         connector.destinationObjectId,
         '1',
-        [destinationLabelTag],
+        destinationConnectorTags,
         NormalizedConnectorTypes.AssociationClassConnector,
       ),
     ];
