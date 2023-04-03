@@ -1,0 +1,56 @@
+{
+  "name": "@oslo-flanders/core",
+  "version": "0.0.0",
+  "description": "Core interfaces and utilities",
+  "author": "Digitaal Vlaanderen <https://data.vlaanderen.be/id/organisatie/OVO002949>",
+  "homepage": "https://github.com/informatievlaanderen/OSLO-UML-Transformer/tree/main/packages/oslo-core#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Informatievlaanderen/OSLO-UML-Transformer.git"
+  },
+  "jest": {
+    "runner": "groups",
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "/test/.*.test.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "index.js",
+      "test/data/*",
+      "lib/utils/namespaces.ts"
+    ],
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "build": "npm run build:ts",
+    "build:ts": "tsc",
+    "test:unit": "node \"../../node_modules/jest/bin/jest.js\" --group=unit"
+  },
+  "bugs": {
+    "url": "https://github.com/Informatievlaanderen/OSLO-UML-Transformer/issues"
+  },
+  "dependencies": {
+    "rdf-parse": "^2.1.1",
+    "streamify-string": "^1.0.1",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.2",
+    "@types/streamify-string": "^1.0.0",
+    "@types/tmp": "^0.2.3"
+  }
+}
